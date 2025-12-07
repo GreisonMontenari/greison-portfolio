@@ -1,56 +1,46 @@
-// script.js - Smooth Scroll, Validação de Formulário e Menu Mobile
-
 document.addEventListener('DOMContentLoaded', () => {
+  // ano no footer (se existir)
+  const ano = document.getElementById('ano');
+  if(ano) ano.textContent = new Date().getFullYear();
 
-    // 1. Smooth Scroll para links de âncora (ROLAGEM DO SITE)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault(); 
-            
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth', 
-                    block: 'start'
-                });
-            }
-             // Fecha o menu mobile após o clique (se estiver aberto)
-            const navList = document.querySelector('.menu');
-            if (navList.classList.contains('open')) {
-                navList.classList.remove('open');
-            }
-        });
+  // theme toggle
+  const themeToggle = document.querySelector('.toggle-theme');
+  const applyTheme = (dark) => {
+    if(dark) document.body.classList.add('dark');
+    else document.body.classList.remove('dark');
+    localStorage.setItem('theme-dark', dark ? '1' : '0');
+  };
+  // init
+  const saved = localStorage.getItem('theme-dark') === '1';
+  applyTheme(saved);
+  if(themeToggle){
+    themeToggle.addEventListener('click', () => applyTheme(!document.body.classList.contains('dark')));
+  }
+
+  // nav toggle (hamburger)
+  const navToggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.menu');
+  if(navToggle && menu){
+    navToggle.addEventListener('click', () => {
+      menu.classList.toggle('open'); // CSS mostra/esconde via media query
+      if(menu.classList.contains('open')) navToggle.setAttribute('aria-label','Fechar menu');
+      else navToggle.setAttribute('aria-label','Abrir menu');
     });
+  }
 
-    // 2. Funcionalidade do Menu Mobile (ABRIR E FECHAR O MENU EM TELAS PEQUENAS)
-    const navToggle = document.querySelector('.nav-toggle'); // Botão ☰
-    const navList = document.querySelector('.menu'); // Lista <ul>
-    
-    if (navToggle && navList) {
-        navToggle.addEventListener('click', () => {
-            navList.classList.toggle('open');
-            navToggle.classList.toggle('open');
-        });
-    }
-
-    // 3. Simulação de Validação do Formulário (Obrigatório pela disciplina)
-    const form = document.querySelector('section#contato form');
-    form && form.addEventListener('submit', (e) => {
+  // smooth scroll for anchor links (works even if menu is hidden)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if(href.startsWith('#')){
         e.preventDefault();
-        
-        let isValid = true;
-        
-        form.querySelectorAll('input[required], textarea[required]').forEach(input => {
-            if (!input.value.trim()) {
-                isValid = false;
-            }
-        });
-
-        if (isValid) {
-            alert('Mensagem enviada com sucesso! (Simulação sem backend)');
-            form.reset();
-        } else {
-            alert('Por favor, preencha todos os campos obrigatórios.');
+        const el = document.querySelector(href);
+        if(el){
+          el.scrollIntoView({behavior:'smooth', block:'start'});
         }
+        // close mobile menu after click
+        if(menu && menu.classList.contains('open')) menu.classList.remove('open');
+      }
     });
+  });
 });
