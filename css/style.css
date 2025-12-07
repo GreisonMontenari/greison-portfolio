@@ -1,125 +1,59 @@
-/* ESTILOS GERAIS */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f6f7fb;
-    scroll-behavior: smooth;
+/* Geral */
+:root{
+  --bg:#f6f7fb;
+  --card:#fff;
+  --text:#111;
+  --accent:#0b6cff;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
 }
 
-h2 {
-    margin-top: 0;
-}
+/* Header / nav */
+header{position:sticky;top:0;z-index:1000;background:var(--card);border-bottom:1px solid rgba(0,0,0,0.06)}
+nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px}
+nav h1{margin:0;font-size:1.1rem}
+.menu{list-style:none;margin:0;padding:0;display:flex;gap:18px}
+.menu li a{text-decoration:none;color:var(--text);font-weight:600}
+.controls{display:flex;gap:8px;align-items:center}
+.nav-toggle{display:none;background:transparent;border:0;font-size:1.2rem;cursor:pointer}
 
-.secao {
-    padding: 60px 20px;
-    text-align: center;
-}
+/* Seções */
+.secao{padding:60px 16px;text-align:center}
+.container{width:90%;max-width:1100px;margin:0 auto}
 
-/* CABEÇALHO E MENU */
-header {
-    background: #fff;
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #ddd;
-}
+/* Avatar */
+.avatar{width:180px;height:180px;border-radius:50%;object-fit:cover;margin-top:18px}
 
-nav {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* Tabela e form */
+table{margin:20px auto;border-collapse:collapse;width:90%;max-width:700px}
+th,td{border:1px solid #bbb;padding:10px}
+th{background:#eee}
+form{max-width:540px;margin:0 auto;text-align:left}
+input,textarea{width:100%;padding:10px;margin-bottom:12px;border:1px solid #ccc;border-radius:6px}
 
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-}
+/* Botão */
+button{background:var(--accent);color:#fff;border:0;padding:10px 14px;border-radius:6px;cursor:pointer}
 
-.menu li a {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
+/* Dark theme */
+body.dark{
+  --bg:#0f1720;
+  --card:#0b1220;
+  --text:#e6eef8;
+  --accent:#4ea8ff;
 }
+body.dark header{background:var(--card)}
+body.dark th{background:#172033}
 
-.menu li a:hover {
-    color: #0b6cff;
+/* Responsividade (mobile) */
+@media (max-width:800px){
+  .menu{display:none;flex-direction:column;gap:8px;background:var(--card);position:absolute;right:12px;top:64px;padding:12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+  .nav-toggle{display:inline-block}
+  nav{padding:10px}
 }
-
-/* CONTROLES (Tema + Menu Mobile) */
-.controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.toggle-theme {
-    cursor: pointer;
-    font-size: 20px;
-}
-
-/* FOTO */
-.avatar {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    margin-top: 20px;
-    object-fit: cover;
-}
-
-/* TABELA */
-table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 80%;
-    max-width: 600px;
-}
-
-table th, table td {
-    border: 1px solid #aaa;
-    padding: 10px;
-}
-
-table th {
-    background: #ddd;
-}
-
-/* FORMULÁRIO */
-form {
-    width: 90%;
-    max-width: 500px;
-    margin: auto;
-    text-align: left;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-button {
-    padding: 10px 20px;
-    background: #0b6cff;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #064cb0;
-}
-
-/* MODO ESCURO */
-body.dark {
-    background: #1e1e1e;
-    color: #fff;
-}
-
-body.dark header {
