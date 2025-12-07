@@ -8,8 +8,79 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<h1>Site carregado — versão completa virá aqui.</h1>
-<p>Substitua este conteúdo pelo código final já enviado na conversa.</p>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#sobre">Greison Montenari</a>
+
+    <nav id="main-nav" class="nav">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="controls">
+      <button id="theme-toggle" aria-label="Alternar tema">🌓</button>
+      <button id="nav-toggle" aria-label="Abrir menu" class="nav-toggle">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="sobre" class="section hero">
+    <div class="container">
+      <h1>Oi — eu sou <span class="accent">Greison Montenari</span></h1>
+      <p>Estudante de Ciência de Dados e criador de projetos open-source.</p>
+      <img src="img/avatar.jpg" alt="Foto de Greison Montenari" width="200">
+    </div>
+  </section>
+
+  <section id="formacao" class="section">
+    <div class="container">
+      <h2>Formação</h2>
+      <p>Ciência de Dados — Uninter</p>
+      <h3>Exemplo de tabela:</h3>
+      <table class="data-table">
+        <thead><tr><th>Fruta</th><th>Canal</th><th>Preço</th></tr></thead>
+        <tbody><tr><td>Ameixa</td><td>Atacado</td><td>1,00</td></tr>
+        <tr><td>Ameixa</td><td>Varejo</td><td>2,00</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section alt">
+    <div class="container">
+      <h2>Portfólio</h2>
+      <p><a href="https://github.com/GreisonMontenari" target="_blank">Meu GitHub</a></p>
+    </div>
+  </section>
+
+  <section id="contato" class="section">
+    <div class="container">
+      <h2>Contato</h2>
+      <form id="contact-form">
+        <label>Nome</label>
+        <input id="nome" type="text">
+        <label>Email</label>
+        <input id="email" type="email">
+        <label>Mensagem</label>
+        <textarea id="mensagem"></textarea>
+        <button type="submit">Enviar</button>
+        <div id="form-feedback"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© <span id="ano"></span> Greison Montenari</p>
+  </div>
+</footer>
+
 <script src="js/script.js"></script>
 </body>
 </html>
