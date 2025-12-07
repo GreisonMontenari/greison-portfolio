@@ -1,27 +1,85 @@
-<h2>Formação</h2>
-<p>Ciência de Dados — Uninter</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Greison Montenari</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-<h3>Competências Técnicas</h3>
+<body>
 
-<table>
-    <tr>
-        <th>Linguagem</th>
-        <th>Nível</th>
-        <th>Uso</th>
-    </tr>
-    <tr>
-        <td>Python</td>
-        <td>Intermediário</td>
-        <td>Ciência de Dados</td>
-    </tr>
-    <tr>
-        <td>SQL</td>
-        <td>Intermediário</td>
-        <td>Bancos de Dados</td>
-    </tr>
-    <tr>
-        <td>HTML / CSS</td>
-        <td>Iniciante</td>
-        <td>Desenvolvimento Web</td>
-    </tr>
-</table>
+<header>
+    <nav>
+        <h1>Greison Montenari</h1>
+        <ul class="menu">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="toggle-theme">🌓</div>
+    </nav>
+</header>
+
+<section id="sobre" class="secao">
+    <h2>Oi — eu sou Greison Montenari</h2>
+    <p>Estudante de Ciência de Dados e criador de projetos open-source.</p>
+    <img src="imagem/avatar.jpg" alt="Foto de Greison Montenari" class="avatar">
+</section>
+
+<section id="formacao" class="secao">
+    <h2>Formação</h2>
+    <p>Ciência de Dados — Uninter</p>
+
+    <h3>Competências Técnicas</h3>
+
+    <table>
+        <tr>
+            <th>Linguagem</th>
+            <th>Nível</th>
+            <th>Uso</th>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>Intermediário</td>
+            <td>Ciência de Dados</td>
+        </tr>
+        <tr>
+            <td>SQL</td>
+            <td>Intermediário</td>
+            <td>Bancos de Dados</td>
+        </tr>
+        <tr>
+            <td>HTML / CSS</td>
+            <td>Iniciante</td>
+            <td>Desenvolvimento Web</td>
+        </tr>
+    </table>
+</section>
+
+<section id="portfolio" class="secao">
+    <h2>Portfólio</h2>
+    <p><a href="https://github.com/GreisonMontenari" target="_blank">Meu GitHub</a></p>
+</section>
+
+<section id="contato" class="secao">
+    <h2>Contato</h2>
+    <form>
+        <label>Nome</label>
+        <input type="text" required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <label>Mensagem</label>
+        <textarea required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
