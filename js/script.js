@@ -1,1 +1,1 @@
-console.log('Script carregado.');
+console.log('Versão final será substituída.');
